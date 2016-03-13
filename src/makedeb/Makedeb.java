@@ -5,6 +5,8 @@
  */
 package makedeb;
 
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 /**
@@ -191,7 +193,14 @@ public class Makedeb extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                jFileChooser1.showOpenDialog(null);
+                
+                jFileChooser1.setFileHidingEnabled(true);
+                if(jFileChooser1.showSaveDialog(this)== JFileChooser.APPROVE_OPTION){
+                    publishTo.setText(""+jFileChooser1.getCurrentDirectory());
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Please selet directory");
+                }
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
